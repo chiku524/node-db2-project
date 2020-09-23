@@ -1,12 +1,10 @@
 
 exports.up = function(knex) {
   return knex.schema.createTable('cars', tbl => {
-    tbl.increments('id');
-    tbl.decimal('name', 128).unique().notNullable();
+    tbl.increments('id'); //creates primary key, not nullable, and increments on its own. UNIQUE
     tbl.text('make', 128).notNullable();
     tbl.text('model', 128).notNullable();
     tbl.decimal('mileage').notNullable();
-    tbl.text('transmission', 128);
     tbl.text('title', 128);
   })
 };
